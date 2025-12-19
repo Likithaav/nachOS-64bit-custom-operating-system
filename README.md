@@ -102,6 +102,9 @@ NachOS will display a cyber-themed boot screen.
 
 Kernel initializes and launches user processes.
 
+---
+
+##file-system-support
 File System Support
 NachOS supports a FAT16-based file system for:
 1.	Loading Kernel: Locating and executing kernel.bin.
