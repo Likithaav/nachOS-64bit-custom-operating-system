@@ -1,8 +1,3 @@
-To ensure your README is as clear and organized as possible, I have updated those specific sections with a numbered format. This makes the technical features and the contribution workflow much easier to follow at a glance.
-
-Here is the complete, updated text for your `README.md`:
-
-```markdown
 # NachOS: Custom 64-bit Operating System
 
 ![NachOS Banner](https://img.shields.io/badge/NachOS-Custom_OS-blue)  
@@ -89,83 +84,54 @@ NachOS follows a modular architecture:
 
 ## Setup and Usage
 
-1. **Clone the repository** ```bash
-   git clone [https://github.com/your-username/NachOS.git](https://github.com/your-username/NachOS.git)
-   cd NachOS
+### 1. Clone the repository
+```bash
+git clone [https://github.com/your-username/NachOS.git](https://github.com/your-username/NachOS.git)
+cd NachOS
+2. Build the OS
+Compile assembly and C code using nasm and gcc, then link the kernel and user programs. (Ensure you have a cross-compiler or relevant build tools installed).
 
-```
+3. Run in Emulator
+To launch the OS using Bochs:
 
-2. **Build the OS** - Compile assembly and C code using `nasm` and `gcc`.
-* Link the kernel and user programs.
+Bash
 
-
-3. **Run in Emulator** ```bash
 bochs -f bochsrc.txt
-```
+4. Boot Screen & Kernel
+NachOS will display a cyber-themed boot screen.
 
-```
+Kernel initializes and launches user processes.
 
-
-4. **Boot Screen & Kernel** - NachOS will display a cyber-themed boot screen.
-* Kernel initializes and launches user processes.
-
-
-
----
-
-## File System Support
-
+File System Support
 NachOS supports a FAT16-based file system for:
+1.	Loading Kernel: Locating and executing kernel.bin.
+2.	Loading User Programs: Fetching user.bin for execution in user mode.
+3.	Simple File Read Operations: Accessing data stored on the disk image.
+_______________________________________
+Process Management
+1.	Idle Process: Runs continuously when no other user processes are ready.
+2.	Ready List: Maintains a queue of user processes prepared for execution.
+3.	Context Switching: Saves and restores CPU state using TrapFrames.
+4.	System Calls: Enables user processes to safely request kernel services.
+________________________________________
+Device Drivers
+1.	Keyboard Driver: Manages user input by buffering typed keys.
+2.	UART Driver: Handles serial console communication for debugging and logs.
+3.	Interrupts: Both drivers utilize interrupt handlers to allow for efficient, asynchronous operations.
+________________________________________
+Future Enhancements
+1.	Add multi-level feedback queue scheduling.
+2.	Implement advanced file system support (FAT32 / ext2).
+3.	Integrate network drivers for basic TCP/IP support.
+4.	Improve GUI and high-resolution graphics support.
+________________________________________
+Contributing
+To contribute to NachOS, please follow these steps:
+1.	Fork the repository to your own account.
+2.	Create a new feature branch for your changes.
+3.	Commit your changes with clear and descriptive messages.
+4.	Open a pull request for review and merging.
 
-1. **Kernel Loading**: Bootstrapping `kernel.bin`.
-2. **User Programs**: Loading `user.bin` into memory.
-3. **File Operations**: Supporting simple file read operations from the disk image.
+Commit your changes with clear messages
 
----
-
-## Process Management
-
-1. **Idle Process**: Runs automatically when no other processes are in the ready state.
-2. **Ready List**: Maintains a queue of user processes prepared for execution.
-3. **Context Switching**: Efficiently saves and restores CPU state using `TrapFrames`.
-4. **System Calls**: Provides an interface for user processes to request kernel-level services.
-
----
-
-## Device Drivers
-
-1. **Keyboard Driver**: Manages input by buffering typed keys.
-2. **UART Driver**: Handles serial port communication for console debugging.
-3. **Interrupt Handlers**: Both drivers utilize asynchronous interrupts for responsive I/O.
-
----
-
-## Future Enhancements
-
-1. Add multi-level feedback queue scheduling.
-2. Implement advanced file system support (FAT32 or ext2).
-3. Integrate network interface drivers.
-4. Improve GUI and high-resolution graphics support.
-
----
-
-## Contributing
-
-Contributions make the open-source community an amazing place to learn and create. To contribute:
-
-1. **Fork** the repository.
-2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`).
-3. **Commit** your changes with clear, descriptive messages.
-4. **Push** to the branch and **Open** a Pull Request.
-
----
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-```
-
-Would you like me to help you generate a `bochsrc.txt` configuration or a `Makefile` to automate the build process?
-
-```
+Open a pull request
