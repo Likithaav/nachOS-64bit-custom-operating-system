@@ -1,3 +1,8 @@
+To ensure your README is as clear and organized as possible, I have updated those specific sections with a numbered format. This makes the technical features and the contribution workflow much easier to follow at a glance.
+
+Here is the complete, updated text for your `README.md`:
+
+```markdown
 # NachOS: Custom 64-bit Operating System
 
 ![NachOS Banner](https://img.shields.io/badge/NachOS-Custom_OS-blue)  
@@ -84,67 +89,83 @@ NachOS follows a modular architecture:
 
 ## Setup and Usage
 
-### 1. Clone the repository
-```bash
-git clone [https://github.com/your-username/NachOS.git](https://github.com/your-username/NachOS.git)
-cd NachOS
+1. **Clone the repository** ```bash
+   git clone [https://github.com/your-username/NachOS.git](https://github.com/your-username/NachOS.git)
+   cd NachOS
+
+```
+
+2. **Build the OS** - Compile assembly and C code using `nasm` and `gcc`.
+* Link the kernel and user programs.
 
 
-2. Build the OS
-Compile assembly and C code using nasm and gcc, then link the kernel and user programs. (Ensure you have a cross-compiler or relevant build tools installed).
-
-3. Run in Emulator
-To launch the OS using Bochs:
-
-Bash
-
+3. **Run in Emulator** ```bash
 bochs -f bochsrc.txt
-4. Boot Screen & Kernel
-NachOS will display a cyber-themed boot screen.
+```
 
-Kernel initializes and launches user processes.
+```
 
-File System Support
+
+4. **Boot Screen & Kernel** - NachOS will display a cyber-themed boot screen.
+* Kernel initializes and launches user processes.
+
+
+
+---
+
+## File System Support
+
 NachOS supports a FAT16-based file system for:
 
-Loading kernel (kernel.bin)
+1. **Kernel Loading**: Bootstrapping `kernel.bin`.
+2. **User Programs**: Loading `user.bin` into memory.
+3. **File Operations**: Supporting simple file read operations from the disk image.
 
-Loading user programs (user.bin)
+---
 
-Simple file read operations
+## Process Management
 
-Process Management
-Idle Process: Runs when no other processes are ready.
+1. **Idle Process**: Runs automatically when no other processes are in the ready state.
+2. **Ready List**: Maintains a queue of user processes prepared for execution.
+3. **Context Switching**: Efficiently saves and restores CPU state using `TrapFrames`.
+4. **System Calls**: Provides an interface for user processes to request kernel-level services.
 
-Ready List: Maintains user processes ready to execute.
+---
 
-Context Switching: Saves and restores CPU state (TrapFrames).
+## Device Drivers
 
-System Calls: Enables user processes to request kernel services.
+1. **Keyboard Driver**: Manages input by buffering typed keys.
+2. **UART Driver**: Handles serial port communication for console debugging.
+3. **Interrupt Handlers**: Both drivers utilize asynchronous interrupts for responsive I/O.
 
-Device Drivers
-Keyboard Driver: Buffers typed keys.
+---
 
-UART Driver: Handles serial console communication.
+## Future Enhancements
 
-Interrupts: Both drivers utilize interrupt handlers for asynchronous operations.
+1. Add multi-level feedback queue scheduling.
+2. Implement advanced file system support (FAT32 or ext2).
+3. Integrate network interface drivers.
+4. Improve GUI and high-resolution graphics support.
 
-Future Enhancements
-Add multi-level scheduling
+---
 
-Implement advanced file system support (FAT32 / ext2)
+## Contributing
 
-Add network drivers
+Contributions make the open-source community an amazing place to learn and create. To contribute:
 
-Improve GUI and graphics support
+1. **Fork** the repository.
+2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`).
+3. **Commit** your changes with clear, descriptive messages.
+4. **Push** to the branch and **Open** a Pull Request.
 
-Contributing
-Contributions are welcome! Please follow these steps:
+---
 
-Fork the repository
+## License
 
-Create a feature branch
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-Commit your changes with clear messages
+```
 
-Open a pull request
+Would you like me to help you generate a `bochsrc.txt` configuration or a `Makefile` to automate the build process?
+
+```
