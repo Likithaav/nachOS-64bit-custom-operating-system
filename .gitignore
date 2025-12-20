@@ -1,0 +1,20 @@
+# Object files
+*.o
+*.a
+*.out
+
+# Binaries
+*.bin
+*.img
+*.iso
+
+# Emulator images
+os.img
+fs.img
+boot.img
+
+# Backup files
+*.bak
+
+# Build directories
+build/
